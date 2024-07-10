@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contact-container">
+        <form  action="save.php" method="post" class="contact-left" onsubmit="return validateForm()">
+            <div class="contact-left-title">
+                <h2>Get in Touch</h2>
+                <hr>
+            </div>
+            <input type="text" name="name" placeholder="Your name" class="contact-inputs" required>
+            <input type="number" name="age" placeholder="Your age" class="contact-inputs" required>
+            <input type="tel" name="number" placeholder="Your number" class="contact-inputs" required>
+            <input type="email" name="email" placeholder="Your email" class="contact-inputs" required>
+            <textarea name="message" placeholder="Your Feedback" class="contact-inputs" required></textarea>
+             <button type="submit">Submit <img src="assets/right-arrow_new.png" alt=""></button>
+        </form>
+        <div class="contact-right">
+            <img src="assets/new message icon.jpg" alt="">
+
+        </div>
+    </div>
+    <script>
+         function validateForm() {
+            var num = document.getElementsByName('number')[0].value;
+            var email = document.getElementsByName('email')[0].value;
+
+            if (num.length !== 10) {
+                alert("Please provide a proper phone number.");
+                return false;
+            }
+
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Enter a proper email ID.");
+                return false;
+            }
+
+            return true;
+         }
+    </script>
+</body>
+</html>
